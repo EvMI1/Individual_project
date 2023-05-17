@@ -26,10 +26,6 @@ pip install -r requirement.txt
 python create_db.py
 ```
 
-## Установите токен для своего бота в файле bot.py на месте YOUR TOKEN
-```
-bot = telebot.TeleBot("YOUR TOKEN")
-```
 
 ## После всех этапов можете запускать самого бота
 ```
