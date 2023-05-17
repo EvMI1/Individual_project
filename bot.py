@@ -35,13 +35,13 @@ def get_min_score(message, mean_score):
     # Выполняем запрос на получение всех университетов, предлагающих специальности, для которых средний балл ЕГЭ и минимальный балл поступления выше заданных значений
     with sqlite3.connect('universities.db') as conn:
         cursor = conn.cursor()
-        query = "SELECT name from Universities WHERE avg_score >= ? AND min_score >= ?"
+        query = "SELECT name from Universities WHERE avg_score <= ? AND min_score <= ?"
         cursor.execute(query, (mean_score, min_score,))
         universities = cursor.fetchall()
 
     # Отправляем пользователю список университетов
     if len(universities) > 0:
-        response = "Список университетов, предлагающих специальности с средним баллом ЕГЭ выше " + str(mean_score) + " и минимальным баллом поступления выше " + str(min_score) + ":\n"
+        response = "Список университетов, предлагающих специальности с средним баллом ЕГЭ ниже " + str(mean_score) + " и минимальным баллом поступления ниже " + str(min_score) + ":\n"
         for university in universities:
             response += university[0] + "\n"
     else:
