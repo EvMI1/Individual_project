@@ -3,7 +3,7 @@ import sqlite3
 
 
 # бот
-bot = telebot.TeleBot("YOUR TOKEN")
+bot = telebot.TeleBot("TOKEN")
 
 # Обработчик команды /start
 @bot.message_handler(commands=['start'])
