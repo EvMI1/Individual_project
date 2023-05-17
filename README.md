@@ -9,7 +9,7 @@ python -m venv venv
 ```
 ./venv/Scripts/Activate
 ```
-#### Для нормальных os 
+#### Для других os 
 ```
 source venv/bin/activate
 ```
