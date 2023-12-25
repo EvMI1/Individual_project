@@ -70,11 +70,11 @@ def get_min_score(message, mean_score):
     # Отправляем пользователю список университетов
     if len(universities) > 0:
         response = (
-            "Список университетов, предлагающих специальности с средним баллом ЕГЭ ниже "
-            + str(mean_score)
-            + " и минимальным баллом поступления выше "
-            + str(min_score)
-            + ":\n"
+                "Список университетов, предлагающих специальности с средним баллом ЕГЭ ниже "
+                + str(mean_score)
+                + " и минимальным баллом поступления выше "
+                + str(min_score)
+                + ":\n"
         )
         for university in universities:
             response += university[0] + "\n"
@@ -147,6 +147,10 @@ def get_specialty(message):
         )
         cursor.execute(query)
         universities = cursor.fetchall()
+    if len(universities) == 0:
+        bot.send_message(message.chat.id, "Сорри, но разраб хуесос и бд не заполнил")
+        send_universities_by_specialty(message)
+        return 0
 
     # Создаем клавиатуру с кнопками университетов
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
